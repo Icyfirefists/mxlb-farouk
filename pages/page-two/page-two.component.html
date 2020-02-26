@@ -1,0 +1,83 @@
+<div class="col-xs-12 col-md-12 prjct-soft-corners">
+    <table class="table tablesort table-hover">
+      <tr>
+        <!-- Clicks call the releavant component functions that will pair with the sort pipe -->
+        <th *ngFor="let i of upperTableHeaders; let ind = index" class="pointer text-center">
+          {{i}}
+        </th>
+      </tr>
+      <tr class="inventory-data">
+        <td class="text-center">
+            <input #newFirstNameInput type="text" class="form-control prjct-soft-corners"
+              name="newItemName" placeholder="New Item Name" required>
+          </td>
+          <td class="text-center">
+            <input #newLastNameInput type="text" class="form-control prjct-soft-corners"
+              name="newItemPrice" placeholder="New Item Price" required>
+          </td>
+          <td class="text-center">
+            <input #newEmailInput type="text" class="form-control prjct-soft-corners" pattern="[0-9]"
+              name="newItemPrice" placeholder="New Item Price" required>
+          </td>
+          <td class="text-center">
+            <input #newPhoneInput type="number" class="form-control prjct-soft-corners" pattern="[0-9]"
+              name="newItemPrice" placeholder="New Item Price" required>
+          </td>
+          <td class="text-center">
+            <input #newAddressInput type="text" class="form-control prjct-soft-corners"
+              name="newItemPrice" placeholder="New Item Price" required>
+          </td>
+        <td class="text-center">
+          <button class="prjct-btn prjct-soft-corners btn btn-block"
+            (click)="this.addCustomer(newFirstNameInput.value, newLastNameInput.value, newEmailInput.value,
+            newPhoneInput.value, newAddressInput.value)">Add Customer</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+  
+  <div class="col-xs-12 col-md-12 prjct-soft-corners">
+    <table id="customers" class="table tablesort table-hover">
+      <tr>
+        <th *ngFor="let i of lowerTableHeaders; let ind = index" class="pointer text-center">
+          {{i}}
+        </th>
+      </tr>
+      <tr *ngFor="let i of this.customers; let ind = index">
+        <!-- <td class="text-center">
+          {{i.name}}
+        </td>
+        <td class="text-center">
+          {{i.price}}
+        </td> -->
+        <td class="text-center">
+            <input #itemNameInput type="text" class="form-control prjct-soft-corners"
+              name="firstName" placeholder="{{i.firstname}}" required>
+          </td>
+          <td class="text-center">
+            <input #itemPriceInput type="number" class="form-control prjct-soft-corners"
+              name="lastName" placeholder="{{i.lastname}}" required>
+          </td>
+          <td class="text-center">
+            <input #EmailInput type="text" class="form-control prjct-soft-corners"
+              name="email" placeholder="{{i.email}}" required>
+          </td>
+          <td class="text-center">
+            <input #PhoneInput type="number" class="form-control prjct-soft-corners" pattern="[0-9]"
+              name="phone" placeholder="{{i.phone}}" required>
+          </td>
+          <td class="text-center">
+            <input #itemNameInput type="text" class="form-control prjct-soft-corners"
+              name="address" placeholder="{{i.address}}" required>
+          </td>
+          <td class="text-center">
+            <button class="prjct-btn prjct-soft-corners btn btn-block"
+              (click)="editCustomer(itemNameInput.value, itemPriceInput.value, ind)">Edit</button>
+          </td>
+          <td class="text-center">
+            <button class="prjct-btn prjct-soft-corners btn btn-block"
+              (click)="removeCustomer(ind)">Delete</button>
+          </td>
+      </tr>
+    </table>
+  </div>

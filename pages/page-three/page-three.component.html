@@ -1,0 +1,50 @@
+<div class="col-xs-12 col-md-12 prjct-soft-corners">
+    <table class="table tablesort table-hover">
+      <tr>
+        <!-- Clicks call the releavant component functions that will pair with the sort pipe -->
+        <th *ngFor="let i of upperTableHeaders; let ind = index" class="pointer text-center">
+          {{i}}
+        </th>
+      </tr>
+      <tr class="inventory-data">
+        <td class="text-center">
+            <select #customerInput name="customerInput" (change)="selectCustomer($event.target.value)" class="rowLimiter table-function form-control prjct-soft-corners">
+                <option>Select Customer</option>
+                <option *ngFor="let i of customers; let ind = index" value="{{i.firstname}} {{i.lastname}}">{{i.firstname}} {{i.lastname}}</option>
+            </select>
+        </td>
+        <td class="text-center">
+            <select #productInput name="productInput" (change)="selectProduct($event.target.value)" class="rowLimiter table-function form-control prjct-soft-corners">
+                <option>Select Product</option>
+              <option *ngFor="let i of products; let ind = index">{{i.name}}</option>
+            </select>
+        </td>
+        <td class="text-center">
+          <button class="prjct-btn prjct-soft-corners btn btn-block"
+            (click)="this.addOrder()">Add Order</button>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="col-xs-12 col-md-12 prjct-soft-corners">
+    <table id="orders" class="table tablesort table-hover">
+      <tr>
+        <th *ngFor="let i of lowerTableHeaders; let ind = index" class="pointer text-center">
+          {{i}}
+        </th>
+      </tr>
+      <tr *ngFor="let i of this.dService.orders; let ind = index">
+        
+          <td class="text-center">
+            {{i.customer}}
+          </td>
+          <td class="text-center">
+            {{i.product}}
+          </td>
+          <td class="text-center">
+            <input type="checkbox"/>
+          </td>
+      </tr>
+    </table>
+  </div>
