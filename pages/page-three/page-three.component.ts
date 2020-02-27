@@ -8,7 +8,7 @@ import { DataService } from '../data.service';
 })
 export class PageThreeComponent implements OnInit {
 
-  constructor(private dService: DataService) { }
+  constructor(public dService: DataService) { }
 
   ngOnInit() {
     this.getProducts();

@@ -8,7 +8,7 @@ import { DataService } from '../data.service';
 })
 export class PageOneComponent implements OnInit {
 
-  constructor(private dService: DataService) { }
+  constructor(public dService: DataService) { }
 
   ngOnInit() {
     this.inv_a = null; 
